@@ -33,6 +33,9 @@ app.MapGet("/weatherforecast", () =>
     })
     .WithName("GetWeatherForecast");
 
+app.UseCors(options => options.WithOrigins(
+    "https://orange-frog-655a.paskalev-1989.workers.dev/").AllowAnyMethod());
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
